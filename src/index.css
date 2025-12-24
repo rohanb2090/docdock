@@ -2,95 +2,113 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 220 20% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 20% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 20% 10%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 175 60% 35%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 20% 20%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 46%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 175 45% 94%;
+    --accent-foreground: 175 60% 25%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 175 60% 35%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Custom semantic colors for confidence */
+    --confidence-high: 145 50% 42%;
+    --confidence-medium: 40 80% 50%;
+    --confidence-low: 0 60% 55%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Surface variants */
+    --surface-elevated: 0 0% 100%;
+    --surface-sunken: 220 14% 98%;
+    --surface-hover: 220 14% 96%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* File type colors */
+    --file-document: 210 70% 50%;
+    --file-image: 280 60% 55%;
+    --file-spreadsheet: 145 55% 40%;
+    --file-presentation: 25 85% 55%;
+    --file-archive: 220 15% 50%;
+    --file-code: 330 65% 50%;
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
+    --sidebar-background: 220 14% 98%;
+    --sidebar-foreground: 220 20% 20%;
+    --sidebar-primary: 175 60% 35%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 175 45% 94%;
+    --sidebar-accent-foreground: 175 60% 25%;
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 175 60% 35%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 220 20% 8%;
+    --foreground: 220 10% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 18% 11%;
+    --card-foreground: 220 10% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 18% 11%;
+    --popover-foreground: 220 10% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 175 55% 45%;
+    --primary-foreground: 220 20% 8%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 220 10% 85%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 10% 55%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 175 30% 18%;
+    --accent-foreground: 175 55% 60%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 55% 45%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 175 55% 45%;
+
+    --confidence-high: 145 45% 50%;
+    --confidence-medium: 40 70% 55%;
+    --confidence-low: 0 55% 50%;
+
+    --surface-elevated: 220 18% 13%;
+    --surface-sunken: 220 20% 6%;
+    --surface-hover: 220 15% 16%;
+
+    --sidebar-background: 220 18% 10%;
+    --sidebar-foreground: 220 10% 90%;
+    --sidebar-primary: 175 55% 45%;
+    --sidebar-primary-foreground: 220 20% 8%;
+    --sidebar-accent: 175 30% 18%;
+    --sidebar-accent-foreground: 175 55% 60%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 175 55% 45%;
   }
 }
 
@@ -100,6 +118,83 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Tabular numerals for data */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  /* File path styling */
+  .file-path {
+    @apply font-mono text-sm bg-muted px-1.5 py-0.5 rounded;
+  }
+
+  /* Diff styling */
+  .diff-add {
+    @apply bg-confidence-high/10 text-confidence-high border-l-2 border-confidence-high;
+  }
+
+  .diff-remove {
+    @apply bg-destructive/10 text-destructive border-l-2 border-destructive line-through;
+  }
+
+  /* Confidence badge variants */
+  .confidence-high {
+    @apply bg-confidence-high/15 text-confidence-high;
+  }
+
+  .confidence-medium {
+    @apply bg-confidence-medium/15 text-confidence-medium;
+  }
+
+  .confidence-low {
+    @apply bg-confidence-low/15 text-confidence-low;
+  }
+
+  /* Data table row hover */
+  .table-row-interactive {
+    @apply hover:bg-surface-hover transition-colors cursor-pointer;
+  }
+}
+
+@layer utilities {
+  .text-confidence-high {
+    color: hsl(var(--confidence-high));
+  }
+
+  .text-confidence-medium {
+    color: hsl(var(--confidence-medium));
+  }
+
+  .text-confidence-low {
+    color: hsl(var(--confidence-low));
+  }
+
+  .bg-confidence-high {
+    background-color: hsl(var(--confidence-high));
+  }
+
+  .bg-confidence-medium {
+    background-color: hsl(var(--confidence-medium));
+  }
+
+  .bg-confidence-low {
+    background-color: hsl(var(--confidence-low));
+  }
+
+  .bg-surface-elevated {
+    background-color: hsl(var(--surface-elevated));
+  }
+
+  .bg-surface-sunken {
+    background-color: hsl(var(--surface-sunken));
+  }
+
+  .bg-surface-hover {
+    background-color: hsl(var(--surface-hover));
   }
 }
