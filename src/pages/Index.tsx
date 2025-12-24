@@ -35,10 +35,10 @@ export default function Index() {
                 x="32" 
                 y="54" 
                 textAnchor="middle" 
-                className="fill-primary-foreground text-[14px] font-bold"
-                style={{ fontFamily: 'system-ui, sans-serif' }}
+                className="fill-primary-foreground text-[12px] font-extrabold tracking-wide"
+                style={{ fontFamily: 'Manrope, system-ui, sans-serif' }}
               >
-                flow
+                FLOW
               </text>
             </svg>
           </div>
