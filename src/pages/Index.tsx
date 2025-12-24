@@ -21,7 +21,7 @@ export default function Index() {
         {/* Hero Section */}
         <div className="text-center mb-12">
           <div className="w-16 h-16 rounded-2xl bg-primary mx-auto mb-6 flex items-center justify-center">
-            <Sparkles className="w-8 h-8 text-primary-foreground" />
+            <span className="text-2xl font-bold text-primary-foreground tracking-tight">FF</span>
           </div>
           <h1 className="text-3xl font-semibold text-foreground mb-3">
             Welcome to FileFlow
