@@ -20,27 +20,8 @@ export default function Index() {
       <div className="max-w-4xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-12">
-          <div className="w-16 h-20 mx-auto mb-6 relative">
-            {/* File shape with folded corner */}
-            <svg viewBox="0 0 64 80" className="w-full h-full">
-              <path 
-                d="M4 8C4 3.58 7.58 0 12 0H40L60 20V72C60 76.42 56.42 80 52 80H12C7.58 80 4 76.42 4 72V8Z" 
-                className="fill-primary"
-              />
-              <path 
-                d="M40 0L60 20H48C43.58 20 40 16.42 40 12V0Z" 
-                className="fill-primary-foreground/30"
-              />
-              <text 
-                x="32" 
-                y="54" 
-                textAnchor="middle" 
-                className="fill-primary-foreground text-[12px] font-extrabold tracking-wide"
-                style={{ fontFamily: 'Manrope, system-ui, sans-serif' }}
-              >
-                FLOW
-              </text>
-            </svg>
+          <div className="w-16 h-16 rounded-2xl bg-primary mx-auto mb-6 flex items-center justify-center">
+            <span className="text-2xl font-bold text-primary-foreground tracking-tight">FF</span>
           </div>
           <h1 className="text-3xl font-semibold text-foreground mb-3">
             Welcome to FileFlow

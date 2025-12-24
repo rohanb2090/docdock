@@ -1,43 +1,52 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarFooter } from "@/components/ui/sidebar";
-import { FolderSearch, FileStack, ListChecks, GitCompare, History, BookOpen, Settings } from "lucide-react";
-const mainNavItems = [{
-  title: "Scan Folders",
-  url: "/scan",
-  icon: FolderSearch
-}, {
-  title: "Scan Results",
-  url: "/results",
-  icon: FileStack
-}, {
-  title: "Suggestions",
-  url: "/suggestions",
-  icon: ListChecks
-}, {
-  title: "Review & Approve",
-  url: "/review",
-  icon: GitCompare
-}];
-const manageNavItems = [{
-  title: "History",
-  url: "/history",
-  icon: History
-}, {
-  title: "Rules",
-  url: "/rules",
-  icon: BookOpen
-}, {
-  title: "Settings",
-  url: "/settings",
-  icon: Settings
-}];
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarFooter,
+} from "@/components/ui/sidebar";
+import {
+  FolderSearch,
+  FileStack,
+  ListChecks,
+  GitCompare,
+  History,
+  BookOpen,
+  Settings,
+  Sparkles,
+} from "lucide-react";
+
+const mainNavItems = [
+  { title: "Scan Folders", url: "/scan", icon: FolderSearch },
+  { title: "Scan Results", url: "/results", icon: FileStack },
+  { title: "Suggestions", url: "/suggestions", icon: ListChecks },
+  { title: "Review & Approve", url: "/review", icon: GitCompare },
+];
+
+const manageNavItems = [
+  { title: "History", url: "/history", icon: History },
+  { title: "Rules", url: "/rules", icon: BookOpen },
+  { title: "Settings", url: "/settings", icon: Settings },
+];
+
 export function AppSidebar() {
   const location = useLocation();
+
   const isActive = (path: string) => location.pathname === path;
-  return <Sidebar className="border-r border-border">
+
+  return (
+    <Sidebar className="border-r border-border">
       <SidebarHeader className="px-4 py-5 border-b border-border">
         <div className="flex items-center gap-2.5">
-          
+          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+            <Sparkles className="w-4 h-4 text-primary-foreground" />
+          </div>
           <div>
             <h1 className="font-semibold text-foreground text-sm">FileFlow</h1>
             <p className="text-xs text-muted-foreground">Smart File Organizer</p>
@@ -52,14 +61,23 @@ export function AppSidebar() {
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {mainNavItems.map(item => <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild className={`w-full justify-start gap-3 px-2.5 py-2 rounded-md transition-colors ${isActive(item.url) ? "bg-accent text-accent-foreground font-medium" : "text-muted-foreground hover:bg-muted hover:text-foreground"}`}>
+              {mainNavItems.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton
+                    asChild
+                    className={`w-full justify-start gap-3 px-2.5 py-2 rounded-md transition-colors ${
+                      isActive(item.url)
+                        ? "bg-accent text-accent-foreground font-medium"
+                        : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                    }`}
+                  >
                     <NavLink to={item.url}>
                       <item.icon className="w-4 h-4" />
                       <span className="text-sm">{item.title}</span>
                     </NavLink>
                   </SidebarMenuButton>
-                </SidebarMenuItem>)}
+                </SidebarMenuItem>
+              ))}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
@@ -70,14 +88,23 @@ export function AppSidebar() {
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {manageNavItems.map(item => <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild className={`w-full justify-start gap-3 px-2.5 py-2 rounded-md transition-colors ${isActive(item.url) ? "bg-accent text-accent-foreground font-medium" : "text-muted-foreground hover:bg-muted hover:text-foreground"}`}>
+              {manageNavItems.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton
+                    asChild
+                    className={`w-full justify-start gap-3 px-2.5 py-2 rounded-md transition-colors ${
+                      isActive(item.url)
+                        ? "bg-accent text-accent-foreground font-medium"
+                        : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                    }`}
+                  >
                     <NavLink to={item.url}>
                       <item.icon className="w-4 h-4" />
                       <span className="text-sm">{item.title}</span>
                     </NavLink>
                   </SidebarMenuButton>
-                </SidebarMenuItem>)}
+                </SidebarMenuItem>
+              ))}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
@@ -89,5 +116,6 @@ export function AppSidebar() {
           <span>Next scan: Jan 23, 2025</span>
         </div>
       </SidebarFooter>
-    </Sidebar>;
+    </Sidebar>
+  );
 }
